@@ -12,6 +12,9 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
+        // Seed Users
+        $this->call(UserSeeder::class);
+
         // Seed Services
         $services = [
             ['name' => 'Classic Manicure', 'category' => 'Manicure', 'price' => 25.00, 'duration_minutes' => 30, 'description' => 'Basic nail shaping, cuticle care, and polish'],

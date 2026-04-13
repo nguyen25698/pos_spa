@@ -10,13 +10,18 @@ use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $date = $request->input('date', now()->format('Y-m-d'));
+        
+        $staff = Staff::where('is_active', true)->orderBy('last_name')->get();
+        
         $appointments = Appointment::with(['customer', 'staff', 'service'])
-            ->orderBy('appointment_date')
+            ->whereDate('appointment_date', $date)
             ->orderBy('appointment_time')
-            ->paginate(20);
-        return view('appointments.index', compact('appointments'));
+            ->get();
+            
+        return view('appointments.index', compact('appointments', 'staff', 'date'));
     }
 
     public function create()

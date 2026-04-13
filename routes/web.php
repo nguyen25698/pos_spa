@@ -8,6 +8,7 @@ use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\PosController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,28 +16,38 @@ use App\Http\Controllers\ReportController;
 |--------------------------------------------------------------------------
 */
 
-Route::get('/', [ReportController::class, 'dashboard'])->name('dashboard');
+// Authentication Routes
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/register', [LoginController::class, 'showRegisterForm'])->name('register');
+Route::post('/register', [LoginController::class, 'register']);
 
-// Services
-Route::resource('services', ServiceController::class);
+// Protected Routes
+Route::middleware('auth')->group(function () {
+    Route::get('/', [ReportController::class, 'dashboard'])->name('dashboard');
 
-// Customers
-Route::resource('customers', CustomerController::class);
+    // Services
+    Route::resource('services', ServiceController::class);
 
-// Staff
-Route::resource('staff', StaffController::class);
+    // Customers
+    Route::resource('customers', CustomerController::class);
 
-// Appointments
-Route::resource('appointments', AppointmentController::class);
+    // Staff
+    Route::resource('staff', StaffController::class);
 
-// Inventory
-Route::resource('inventory', InventoryController::class);
+    // Appointments
+    Route::resource('appointments', AppointmentController::class);
 
-// POS Terminal
-Route::get('/pos', [PosController::class, 'index'])->name('pos.index');
-Route::post('/pos/checkout', [PosController::class, 'processCheckout'])->name('pos.checkout');
-Route::get('/pos/receipt/{transaction}', [PosController::class, 'receipt'])->name('pos.receipt');
+    // Inventory
+    Route::resource('inventory', InventoryController::class);
 
-// Reports
-Route::get('/reports/sales', [ReportController::class, 'sales'])->name('reports.sales');
-Route::get('/reports/commissions', [ReportController::class, 'commissions'])->name('reports.commissions');
+    // POS Terminal
+    Route::get('/pos', [PosController::class, 'index'])->name('pos.index');
+    Route::post('/pos/checkout', [PosController::class, 'processCheckout'])->name('pos.checkout');
+    Route::get('/pos/receipt/{transaction}', [PosController::class, 'receipt'])->name('pos.receipt');
+
+    // Reports
+    Route::get('/reports/sales', [ReportController::class, 'sales'])->name('reports.sales');
+    Route::get('/reports/commissions', [ReportController::class, 'commissions'])->name('reports.commissions');
+});

@@ -56,7 +56,7 @@
         /* Layout */
         .layout {
             display: flex;
-            min-height: calc(100vh - 60px);
+            height: calc(100vh - 60px);
         }
 
         /* Sidebar */
@@ -102,100 +102,82 @@
         /* Main Content */
         .main-content {
             flex: 1;
-            padding: 1.5rem;
             overflow: auto;
         }
 
-        /* Card styles */
-        .card {
+        /* Calendar Header */
+        .calendar-header {
             background: #fff;
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        /* Button styles */
-        .btn {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.2s;
-            font-weight: 500;
-        }
-
-        .btn-primary {
-            background: #1976d2;
-            color: #fff;
-        }
-
-        .btn-success {
-            background: #4caf50;
-            color: #fff;
-        }
-
-        .btn-danger {
-            background: #f44336;
-            color: #fff;
-        }
-
-        .btn:hover {
-            opacity: 0.9;
-            transform: translateY(-1px);
-        }
-
-        /* Table styles */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th, td {
-            padding: 0.75rem;
-            text-align: left;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
             border-bottom: 1px solid #e0e0e0;
         }
 
-        th {
-            background: #f8f9fa;
-            font-weight: 600;
-            color: #333;
-        }
-
-        tr:hover {
-            background: #f8f9fa;
-        }
-
-        /* Form styles */
-        .form-group {
-            margin-bottom: 1rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: #333;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem;
+        .today-btn {
+            padding: 0.5rem 1rem;
             border: 1px solid #ddd;
+            background: #fff;
             border-radius: 6px;
+            cursor: pointer;
             font-size: 0.9rem;
         }
 
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
+        .date-nav {
+            display: flex;
+            align-items: center;
+            margin-left: 1rem;
+            gap: 0.5rem;
+        }
+
+        .date-nav-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.25rem;
+            color: #666;
+        }
+
+        .current-date {
+            font-size: 1rem;
+            color: #1976d2;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .settings-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.25rem;
+            color: #666;
+        }
+
+        .view-toggle {
+            margin-left: auto;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .view-btn {
+            padding: 0.5rem 1.25rem;
+            border: 1px solid #ddd;
+            background: #fff;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .view-btn:first-child {
+            border-radius: 6px 0 0 6px;
+        }
+
+        .view-btn:last-child {
+            border-radius: 0 6px 6px 0;
+        }
+
+        .view-btn.active {
+            background: #1976d2;
+            color: #fff;
             border-color: #1976d2;
         }
 
@@ -203,7 +185,7 @@
         .alert {
             padding: 1rem;
             border-radius: 8px;
-            margin-bottom: 1rem;
+            margin: 1rem;
         }
 
         .alert-success {
@@ -216,44 +198,6 @@
             background: #f8d7da;
             color: #721c24;
             border: 1px solid #f5c6cb;
-        }
-
-        /* Badge styles */
-        .badge {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        .badge-success { background: #d4edda; color: #155724; }
-        .badge-warning { background: #fff3cd; color: #856404; }
-        .badge-danger { background: #f8d7da; color: #721c24; }
-        .badge-info { background: #d1ecf1; color: #0c5460; }
-
-        /* Stats grid */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-        }
-
-        .stat-card {
-            background: linear-gradient(135deg, #1976d2, #1565c0);
-            color: #fff;
-            padding: 1.5rem;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .stat-card h3 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-card p {
-            opacity: 0.9;
         }
     </style>
 </head>

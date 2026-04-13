@@ -24,7 +24,7 @@ class InventoryController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'category' => 'nullable|string|max:100',
-            'sku' => 'required|string|unique:inventory,sku|max:50',
+            'sku' => 'required|string|unique:inventories,sku|max:50',
             'quantity' => 'required|integer|min:0',
             'unit_price' => 'required|numeric|min:0',
             'reorder_level' => 'required|integer|min:0',
@@ -47,7 +47,7 @@ class InventoryController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'category' => 'nullable|string|max:100',
-            'sku' => 'required|string|unique:inventory,sku,' . $inventory->id . '|max:50',
+            'sku' => 'required|string|unique:inventories,sku,' . $inventory->id . '|max:50',
             'quantity' => 'required|integer|min:0',
             'unit_price' => 'required|numeric|min:0',
             'reorder_level' => 'required|integer|min:0',
