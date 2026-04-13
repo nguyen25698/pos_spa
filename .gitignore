@@ -1,0 +1,40 @@
+```
+# Dependencies
+vendor/
+node_modules/
+
+# Build artifacts
+dist/
+build/
+public/build/
+storage/framework/cache/
+storage/framework/sessions/
+storage/framework/views/
+bootstrap/cache/
+
+# Environment specific
+.env
+.env.local
+.env.*
+!.env.example
+
+# Logs
+*.log
+storage/logs/*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# PHP/Laravel specific
+.php_cs.cache
+.phpunit.result.cache
+.npm
+.yarn
+```
