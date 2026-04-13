@@ -1,40 +1,37 @@
 ```
-# Dependencies
-vendor/
-node_modules/
-
-# Build artifacts
-dist/
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
 build/
-public/build/
-storage/framework/cache/
-storage/framework/sessions/
-storage/framework/views/
-bootstrap/cache/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
 
-# Environment specific
+# Environment
 .env
 .env.local
-.env.*
-!.env.example
+*.env.*
 
 # Logs
 *.log
-storage/logs/*
 
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# OS
-.DS_Store
-Thumbs.db
-
-# PHP/Laravel specific
-.php_cs.cache
-.phpunit.result.cache
-.npm
-.yarn
+# Coverage
+.coverage
+htmlcov/
+.coverage.*
+.coverage.xml
 ```
