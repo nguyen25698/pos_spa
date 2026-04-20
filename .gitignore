@@ -1,0 +1,25 @@
+```
+# Laravel-specific ignores
+vendor/
+storage/
+bootstrap/cache/
+
+# Environment
+.env
+.env.local
+.env.*
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Tests
+.phpunit.result.cache
+```
